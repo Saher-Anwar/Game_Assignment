@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -31,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            //transform.forward = direction;
             float targetAngle = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
@@ -47,16 +45,16 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() // called every second
     {
         rigidbody.MovePosition(rigidbody.position + direction * speed * Time.fixedDeltaTime);
-        
+
         if (isJumping)
         {
-            if (rigidbody.velocity.y >= 0)
+            if (rigidbody.velocity.y > 0)
             {
                 verticalVelocity = verticalVelocity + (new Vector3(0f, gravityScale * Time.fixedDeltaTime, 0f));
                 rigidbody.velocity = verticalVelocity;
             }
 
-            if(rigidbody.velocity.y < 0)
+            if (rigidbody.velocity.y <= 0)
             {
                 verticalVelocity = verticalVelocity + (new Vector3(0f, fallingGravityScale * Time.fixedDeltaTime, 0f));
                 rigidbody.velocity = verticalVelocity;

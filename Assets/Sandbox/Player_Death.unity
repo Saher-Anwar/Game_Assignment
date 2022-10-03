@@ -199,6 +199,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1109610496, guid: df116449a5762f24f9bf2925683bb36c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3166468524560166082, guid: df116449a5762f24f9bf2925683bb36c,
         type: 3}
       propertyPath: m_Name
@@ -261,13 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df116449a5762f24f9bf2925683bb36c, type: 3}
---- !u!4 &907276456 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8195957096446607948, guid: 2ac49764ae0ddf94a8955826845a3f3e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1033019710}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1033019710
+--- !u!1001 &1332984322
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -277,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 8195957096446607942, guid: 2ac49764ae0ddf94a8955826845a3f3e,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Player (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8195957096446607948, guid: 2ac49764ae0ddf94a8955826845a3f3e,
         type: 3}
@@ -292,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 8195957096446607948, guid: 2ac49764ae0ddf94a8955826845a3f3e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8195957096446607948, guid: 2ac49764ae0ddf94a8955826845a3f3e,
         type: 3}
@@ -336,27 +334,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac49764ae0ddf94a8955826845a3f3e, type: 3}
---- !u!1 &1109610495 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3166468524560166082, guid: df116449a5762f24f9bf2925683bb36c,
-    type: 3}
-  m_PrefabInstance: {fileID: 885738205}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1109610496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109610495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b17ebdece1df0e4d955e50c41b78e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 907276456}
-  offset: {x: 0, y: 2.5, z: -10}
-  smoothSpeed: 0.125
 --- !u!1 &1731540066
 GameObject:
   m_ObjectHideFlags: 0
