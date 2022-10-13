@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
         JUMPING_UP,
         FALLING_DOWN,
     }
-    
+
+    public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ReduceHealth(int reduction)
+    {
+        health -= reduction;
     }
 
     private void OnCollisionEnter(Collision collision)

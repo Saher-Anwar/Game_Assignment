@@ -13,13 +13,14 @@ public class PlatformHorizontalMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > horizontalRightLimit)
+        if (transform.localPosition.x > horizontalRightLimit)
         {
             directionToMove = -1;
         }
-        else if (transform.position.x < horizontalLeftLimit)
+        else if (transform.localPosition.x < horizontalLeftLimit)
         {
             directionToMove = 1;
+            Debug.Log("going overboard");
         }
 
         MovePlatform();
