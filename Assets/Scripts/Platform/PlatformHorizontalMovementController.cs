@@ -20,7 +20,6 @@ public class PlatformHorizontalMovementController : MonoBehaviour
         else if (transform.localPosition.x < horizontalLeftLimit)
         {
             directionToMove = 1;
-            Debug.Log("going overboard");
         }
 
         MovePlatform();

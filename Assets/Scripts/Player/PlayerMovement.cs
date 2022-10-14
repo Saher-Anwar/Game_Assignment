@@ -70,17 +70,16 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             verticalVelocity = new Vector3(0, jumpVelocity, 0);
-            Debug.Log("Collision with ground detected");
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if(collision.gameObject.tag.Equals("Ground") || collision.gameObject.tag.Equals("Platform"))
-        {
-            isJumping = true;
-            verticalVelocity = verticalVelocity + (new Vector3(0f, fallingGravityScale * Time.fixedDeltaTime, 0f));
-            rigidbody.velocity = verticalVelocity;
-        }
+        //if(collision.gameObject.tag.Equals("Ground") || collision.gameObject.tag.Equals("Platform"))
+        //{
+        //    isJumping = true;
+        //    verticalVelocity = verticalVelocity + (new Vector3(0f, fallingGravityScale * Time.fixedDeltaTime, 0f));
+        //    rigidbody.velocity = verticalVelocity;
+        //}
     }
 }
