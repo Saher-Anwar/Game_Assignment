@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &182251216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3166468524560166082, guid: df116449a5762f24f9bf2925683bb36c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1539138762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &360333601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629,17 +635,17 @@ PrefabInstance:
     - target: {fileID: 3166468524560166083, guid: df116449a5762f24f9bf2925683bb36c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 357.38
       objectReference: {fileID: 0}
     - target: {fileID: 3166468524560166083, guid: df116449a5762f24f9bf2925683bb36c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: 3166468524560166083, guid: df116449a5762f24f9bf2925683bb36c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 301.79
       objectReference: {fileID: 0}
     - target: {fileID: 3166468524560166083, guid: df116449a5762f24f9bf2925683bb36c,
         type: 3}
@@ -814,7 +820,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 13400000, guid: 19fad220749a6b645b165ccb7ec3596d,
+        type: 2}
     - target: {fileID: 8195957096446607948, guid: 2ac49764ae0ddf94a8955826845a3f3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -872,6 +879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8195957096446607950, guid: 2ac49764ae0ddf94a8955826845a3f3e,
         type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195957096446607950, guid: 2ac49764ae0ddf94a8955826845a3f3e,
+        type: 3}
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
@@ -880,6 +892,11 @@ PrefabInstance:
       propertyPath: speed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8195957096446607951, guid: 2ac49764ae0ddf94a8955826845a3f3e,
+        type: 3}
+      propertyPath: cameraHolder
+      value: 
+      objectReference: {fileID: 182251216}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac49764ae0ddf94a8955826845a3f3e, type: 3}
 --- !u!4 &1808741851 stripped
