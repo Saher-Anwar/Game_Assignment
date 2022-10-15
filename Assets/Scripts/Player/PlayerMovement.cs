@@ -5,17 +5,15 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject cameraHolder;
     public new Rigidbody rigidbody;
     public float speed = 4f;
     public float gravityScale = -9.81f;
     public float jumpVelocity = 10f;
     public float fallingGravityScale = 15f;
-    public float turnSmoothTime = 0.1f;
     
-    private Vector3 direction;
     private bool isJumping = false;
     private Vector3 verticalVelocity;
-    private float turnSmoothVelocity;
 
     private bool offPlatform = false;
 
@@ -27,17 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        if (direction.magnitude >= 0.1f)
-        {
-            float targetAngle = Mathf.Atan2(horizontal, vertical) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0, angle, 0);
-        }
-
+        RotatePlayer();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumping = true;
@@ -47,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() // called every second
     {
-        rigidbody.MovePosition(rigidbody.position + direction * speed * Time.fixedDeltaTime);
+        MovePlayer();
 
         if (isJumping)
         {
@@ -89,5 +77,29 @@ public class PlayerMovement : MonoBehaviour
         {
             offPlatform = true;
         }
+    }
+
+    private void MovePlayer()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        forward.y = 0;
+        right.y = 0;
+        forward = forward.normalized;
+        right = right.normalized;
+
+        Vector3 cameraBasedVerticalMovement = vertical * forward;
+        Vector3 cameraBasedRightMovement = horizontal * right;
+
+        Vector3 overallCameraBasedMovement = cameraBasedVerticalMovement + cameraBasedRightMovement;
+        transform.Translate(overallCameraBasedMovement * Time.fixedDeltaTime * speed, Space.World);
+    }
+
+    private void RotatePlayer()
+    {
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, cameraHolder.transform.localEulerAngles.y, transform.localEulerAngles.z);
     }
 }
