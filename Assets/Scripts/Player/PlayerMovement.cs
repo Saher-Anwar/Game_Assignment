@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 verticalVelocity;
     private float turnSmoothVelocity;
 
+    private bool offPlatform = false;
+
     private void Start()
     {
         verticalVelocity = new Vector3(0, jumpVelocity, 0);
@@ -62,6 +64,13 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if(!isJumping && offPlatform)
+        {
+            Debug.Log($"Executing, vertical velocity = {rigidbody.velocity}");
+            rigidbody.velocity = verticalVelocity + (new Vector3(0f, -2 * Time.fixedDeltaTime, 0f));
+            Debug.Log($"New  velocity = {rigidbody.velocity}");
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -69,17 +78,16 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag.Equals("Ground") || collision.gameObject.tag.Equals("Platform"))
         {
             isJumping = false;
+            offPlatform = false;
             verticalVelocity = new Vector3(0, jumpVelocity, 0);
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        //if(collision.gameObject.tag.Equals("Ground") || collision.gameObject.tag.Equals("Platform"))
-        //{
-        //    isJumping = true;
-        //    verticalVelocity = verticalVelocity + (new Vector3(0f, fallingGravityScale * Time.fixedDeltaTime, 0f));
-        //    rigidbody.velocity = verticalVelocity;
-        //}
+        if (collision.gameObject.tag.Equals("Platform"))
+        {
+            offPlatform = true;
+        }
     }
 }

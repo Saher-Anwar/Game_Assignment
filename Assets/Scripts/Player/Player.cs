@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     public void ReduceHealth(int reduction)
     {
         health -= reduction;
+        if(health <= 0)
+        {
+            PlayerDeath();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
