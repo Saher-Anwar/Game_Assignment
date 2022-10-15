@@ -12,6 +12,8 @@ public class EnemyAI1 : MonoBehaviour
     private Vector3 currPos;
 
     private float elapsedTime = 0;
+    private bool coroutineStarted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,13 @@ public class EnemyAI1 : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        Debug.Log(transform.position);
         transform.position = Vector3.Lerp(currPos, playerPos, elapsedTime / travelTime);
+
+        if(elapsedTime > travelTime && !coroutineStarted)
+        {
+            StartCoroutine(DestroyGameObject());
+            coroutineStarted = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,13 +42,15 @@ public class EnemyAI1 : MonoBehaviour
             other.gameObject.GetComponent<Player>().ReduceHealth(50);
         }
 
-        GetComponentInChildren<ParticleSystem>().Play();
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        Debug.Log("Entering");
+
         StartCoroutine(DestroyGameObject());
     }
 
     IEnumerator DestroyGameObject()
     {
+        GetComponentInChildren<ParticleSystem>().Play();
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

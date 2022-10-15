@@ -66,6 +66,6 @@ Material:
     - _QueueOffset: 0
     - _ShellControl: 7.29
     m_Colors:
-    - _OffsetControl: {r: -0.25, g: -0.25, b: 0, a: 0}
+    - _OffsetControl: {r: -0.1, g: -0.1, b: 0, a: 0}
     - _TilingControl: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

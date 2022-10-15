@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class VolcanoEruption : MonoBehaviour
 {
+    public float initialDelay = 3f;
     public float waitTime = 3f;
     public float particleEffectTime = 5f;
     public Vector3 overlapBoxOffset = new Vector3(0,0,0);
@@ -22,6 +23,7 @@ public class VolcanoEruption : MonoBehaviour
 
     IEnumerator PlayParticleEffects()
     {
+        yield return new WaitForSeconds(initialDelay);
         while (true)
         {
             particleSystem.Play();

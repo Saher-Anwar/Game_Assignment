@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8987691532192849881}
   - component: {fileID: 5410347355317407868}
   - component: {fileID: 7850228286578484406}
-  - component: {fileID: 8876604388243484335}
   - component: {fileID: 8876604388243484323}
+  - component: {fileID: 5851662793487215505}
   m_Layer: 0
   m_Name: RockMesh
   m_TagString: Untagged
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8876604388243484335
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8642796332179015011}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04409974, y: 0.03939736, z: 0.047951393}
-  m_Center: {x: -0.0005455017, y: 0.019612823, z: -0.0040251696}
 --- !u!114 &8876604388243484323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +100,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   travelTime: 4
   waitToDestroy: 1
+--- !u!65 &5851662793487215505
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8642796332179015011}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04409974, y: 0.03939736, z: 0.047951393}
+  m_Center: {x: -0.0005455017, y: 0.019612823, z: -0.0040251696}
 --- !u!1 &8876604389019303242
 GameObject:
   m_ObjectHideFlags: 0
