@@ -31,6 +31,10 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.tag.Equals("Enemey"))
         {
             // deal damage to enemy
+            other.GetComponent<EnemyAi2>().ReduceHealth(damage);
+        } else if (!other.gameObject.tag.Equals("Player"))
+        {
+            Destroy(gameObject);
         }
     }
 }

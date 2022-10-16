@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
         FALLING_DOWN,
     }
 
-    public int health = 100;
+    public float health = 100;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         
     }
 
-    public void ReduceHealth(int reduction)
+    public void ReduceHealth(float reduction)
     {
         health -= reduction;
         if(health <= 0)

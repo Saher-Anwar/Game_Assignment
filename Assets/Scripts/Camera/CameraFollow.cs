@@ -12,9 +12,6 @@ public class CameraFollow : MonoBehaviour
     public float horizontalSpeed = 2f;
     public float verticalSpeed = 2f;
 
-    private float yaw = 0f;
-    private float pitch = 0f;
-
     // Update is called once per frame
     void FixedUpdate()
     {
