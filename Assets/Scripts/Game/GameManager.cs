@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null || instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
         }
@@ -16,5 +15,10 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
