@@ -81,8 +81,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxis("Horizontal") * Time.fixedDeltaTime * speed;
+        float vertical = Input.GetAxis("Vertical") * Time.fixedDeltaTime * speed;
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
 
@@ -91,11 +91,8 @@ public class PlayerMovement : MonoBehaviour
         forward = forward.normalized;
         right = right.normalized;
 
-        Vector3 cameraBasedVerticalMovement = vertical * forward;
-        Vector3 cameraBasedRightMovement = horizontal * right;
-
-        Vector3 overallCameraBasedMovement = cameraBasedVerticalMovement + cameraBasedRightMovement;
-        transform.Translate(overallCameraBasedMovement * Time.fixedDeltaTime * speed, Space.World);
+        Vector3 overallCameraBasedMovement = (vertical * forward) + (horizontal * right);
+        transform.Translate(overallCameraBasedMovement, Space.World);
     }
 
     private void RotatePlayer()

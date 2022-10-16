@@ -22,7 +22,6 @@ public class PlatformFlip : MonoBehaviour
                 transform.Rotate(new Vector3(0, 0, 90));
                 isFlipped = true;
                 elapsedTime = 0;
-                Debug.Log("Flipped");
             }
         }
         else
