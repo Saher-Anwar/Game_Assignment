@@ -18,7 +18,6 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Instantiate(bullet, transform.position, Quaternion.identity);
-
         }
     }
 }
